@@ -4,6 +4,9 @@ run:
 build:
 	./scripts/build.sh
 
-hello:
-	nasm -felf64 ./asm/hello.asm -o ./asm/hello.o
-	ld ./asm/hello.o -o ./asm/hello
+hello: mkout
+	nasm -felf64 ./asm/hello.asm -o ./out/hello.o
+	ld ./out/hello.o -o ./out/hello
+
+mkout:
+	./scripts/mkout.sh
